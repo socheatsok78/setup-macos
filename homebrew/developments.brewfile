@@ -1,0 +1,19 @@
+# Brewfile
+tap "github/gh"
+tap "dart-lang/dart"
+
+# Development Environment
+brew "git"
+brew "gh"
+
+# Node.js
+brew "node@14"              # Node v14
+brew "yarn"                 # Yarn
+brew "deno"                 # Deno A secure runtime for JavaScript and TypeScript.
+
+# Dart
+brew "dart"                 # Dart
+
+# PHP
+brew "php@8.0"
+brew "composer"

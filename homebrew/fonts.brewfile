@@ -1,0 +1,13 @@
+# Brewfile
+tap "homebrew/cask-fonts"
+tap "pp-spaces/khmer-unicode"
+
+# Keyboard layouts
+cask "khmer-unicode-layout"
+
+# Fonts
+cask "font-fira-code"
+cask "font-khmeros-bundle"
+cask "font-open-khmer-school"
+cask "font-kantumruy"
+cask "font-kdam-thmor"

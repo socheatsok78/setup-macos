@@ -1,0 +1,8 @@
+# Development Stack
+tap "heroku/brew"
+
+brew "awscli"
+brew "awsebcli"
+brew "doctl"
+brew "heroku/brew/heroku"
+brew "vercel-cli"

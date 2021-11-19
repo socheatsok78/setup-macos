@@ -1,0 +1,114 @@
+#!/usr/bin/env bash
+
+# helpers
+# string formatters
+if [[ -t 1 ]]; then
+    tty_escape() { printf "\033[%sm" "$1"; }
+else
+    tty_escape() { :; }
+fi
+
+tty_mkbold() { tty_escape "1;$1"; }
+tty_underline="$(tty_escape "4;39")"
+tty_blue="$(tty_mkbold 34)"
+tty_red="$(tty_mkbold 31)"
+tty_yellow="$(tty_mkbold 33)"
+tty_bold="$(tty_mkbold 39)"
+tty_reset="$(tty_escape 0)"
+
+shell_join() {
+    local arg
+    printf "%s" "$1"
+    shift
+    for arg in "$@"; do
+        printf " "
+        printf "%s" "${arg// /\ }"
+    done
+}
+
+chomp() {
+    printf "%s" "${1/"$'\n'"/}"
+}
+
+ohai() {
+    printf "${tty_blue}==>${tty_bold} %s${tty_reset}\n" "$(shell_join "$@")"
+}
+
+warn() {
+    printf "${tty_yellow}Warning${tty_reset}: %s\n" "$(chomp "$1")"
+}
+
+error(){
+    printf "${tty_red}Error${tty_reset}: %s\n" "$(chomp "$1")" >>/dev/stderr
+}
+
+abort() {
+  printf "%s\n" "$1"
+  exit 1
+}
+
+execute() {
+  if ! "$@"; then
+    abort "$(printf "Failed during: %s" "$(shell_join "$@")")"
+  fi
+}
+
+# installer
+run_remote_installer() {
+    ohai "Installing $1"
+
+    if [[ -n "${SETUP_DRY_RUN}" ]]; then
+        warn "$1 [Ignored]"
+    else
+        /bin/bash -c "$(curl -fsSL $2)"
+    fi
+}
+
+install_homebrew() {
+    if [ "$(command -v brew)" ]; then
+        ohai "Homebrew already installed!"
+    else
+        run_remote_installer "Homebrew" "https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh"
+    fi
+}
+
+update_homebrew() {
+    ohai "Updating Homebrew..."
+    if [[ -n "${SETUP_DRY_RUN}" ]]; then
+        warn "Updating Homebrew... [Ignored]"
+    else
+        execute "brew" "update"
+    fi
+}
+
+brewbundle() {
+    ohai "[Brew] bundle $1..."
+
+    if [[ -n "${SETUP_DRY_RUN}" ]]; then
+        warn "Bundle $1 [Ignored]"
+        return 0
+    fi
+
+    if [ -n "$CI" ]; then
+        execute "brew" "bundle" "--verbose" "--file" "$2.brewfile"
+    else
+        execute "brew" "bundle" "--quiet" "--file" "$2.brewfile"
+    fi
+}
+
+# main
+echo "         __  __ "
+echo " _  _  _/  \(_  "
+echo "|||(_|(_\__/__) "
+echo "                "
+
+install_homebrew
+update_homebrew
+
+brewbundle "prerequisite"           "homebrew/commons"
+brewbundle "keyboards and fonts"    "homebrew/fonts"
+brewbundle "development tools"      "homebrew/developments"
+brewbundle "development stacks"     "homebrew/stack"
+brewbundle "utilities"              "homebrew/utilities"
+
+ohai "Installation successful!"

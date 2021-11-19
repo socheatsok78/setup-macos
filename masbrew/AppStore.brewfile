@@ -1,0 +1,32 @@
+# -*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
+#  Applications
+# -*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
+#
+# This will required user password install!!!
+#
+mas 'Affinity', id: 824171161
+mas 'GIPHY', id: 668208984
+mas 'Image2icon', id: 992115977
+mas 'Bear', id: 1091189122
+mas 'Telegram', id: 747648890
+cask 'notion'
+
+# Apple
+mas 'Keynote', id: 409183694
+mas 'Pages', id: 409201541
+mas 'Numbers', id: 409203825
+mas 'Compressor', id: 424390742
+mas 'Server', id: 883878097
+mas 'Shazam', id: 897118787
+
+# Tools
+mas 'Amphetamine', id: 937984704
+mas 'Enpass', id: 732710998
+mas 'Magnet', id: 441258766
+mas 'Adblock', id: 1432731683
+mas 'Outline', id: 1356178125
+cask 'outline-manager'
+cask 'synergy'
+
+# Development
+mas "Xcode", id: 497799835

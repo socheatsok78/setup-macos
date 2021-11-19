@@ -42,6 +42,10 @@ error(){
     printf "${tty_red}Error${tty_reset}: %s\n" "$(chomp "$1")" >>/dev/stderr
 }
 
+divider() {
+    printf '%*s\n' "${COLUMNS:-$(tput cols)}" '' | tr ' ' -
+}
+
 abort() {
   printf "%s\n" "$1"
   exit 1
@@ -105,10 +109,19 @@ echo "                "
 install_homebrew
 update_homebrew
 
+divider
+ohai "Setup environment"
 brewbundle "prerequisite"           "homebrew/commons"
 brewbundle "keyboards and fonts"    "homebrew/fonts"
 brewbundle "development tools"      "homebrew/developments"
 brewbundle "development stacks"     "homebrew/stack"
 brewbundle "utilities"              "homebrew/utilities"
+
+divider
+ohai "Setup applications"
+brewbundle "Cask"                   "homebrew/cask"
+brewbundle "AppStore"               "masbrew/AppStore"
+brewbundle "Arcade"                 "masbrew/Arcade"
+
 
 ohai "Installation successful!"

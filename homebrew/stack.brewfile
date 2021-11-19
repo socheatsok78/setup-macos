@@ -1,8 +1,17 @@
 # Development Stack
+tap "hashicorp/tap"
 tap "heroku/brew"
 
-brew "awscli"
-brew "awsebcli"
+# DigitalOcean
 brew "doctl"
+
+# Heroku
 brew "heroku/brew/heroku"
+
+# Vercel
 brew "vercel-cli"
+
+# Hashicorp
+cask "vagrant"
+brew "hashicorp/tap/waypoint"
+brew "hashicorp/tap/terraform"

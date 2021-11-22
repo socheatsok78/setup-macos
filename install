@@ -54,3 +54,13 @@ execute() {
 }
 
 # main
+REPO=https://github.com/socheatsok78/setup-macos.git
+WORKDIR=/tmp/socheatsok78-setup-macos
+
+main() {
+    execute "git" "clone" "${REPO}" "${WORKDIR}"
+    cd ${WORKDIR}
+    execute "./setup"
+}
+
+execute "main" "$@"

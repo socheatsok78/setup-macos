@@ -61,6 +61,7 @@ main() {
     execute "git" "clone" "${REPO}" "${WORKDIR}"
     cd ${WORKDIR}
     execute "bash" "./setup"
+    rm -rf "${WORKDIR}"
 }
 
 execute "main" "$@"

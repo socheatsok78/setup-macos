@@ -58,9 +58,12 @@ REPO=https://github.com/socheatsok78/setup-macos.git
 WORKDIR=/tmp/socheatsok78-setup-macos
 
 main() {
+    ohai "Downloading setup script..."
     execute "git" "clone" "${REPO}" "${WORKDIR}"
+    ohai "Running setup script..."
     cd ${WORKDIR}
     execute "bash" "./setup"
+    ohai "Running self-cleanup..."
     rm -rf "${WORKDIR}"
 }
 

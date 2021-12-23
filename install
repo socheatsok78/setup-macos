@@ -57,18 +57,26 @@ execute() {
 REPO=https://github.com/socheatsok78/setup-macos.git
 WORKDIR=/tmp/socheatsok78-setup-macos
 
-trap 'cleanup' SIGTERM SIGINT
+trap 'do_cleanup' ERR TERM EXIT
+trap 'do_cleanup' SIGINT SIGTERM
 
 main() {
+    do_download
+    do_install
+}
+
+do_download() {
     ohai "Downloading setup script..."
     execute "git" "clone" "${REPO}" "${WORKDIR}"
+}
+
+do_install() {
     ohai "Running setup script..."
     cd ${WORKDIR}
     execute "bash" "./setup"
-    cleanup
 }
 
-cleanup() {
+do_cleanup() {
     ohai "Running self-cleanup..."
     rm -rf "${WORKDIR}"
 }

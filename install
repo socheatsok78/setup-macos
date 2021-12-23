@@ -61,8 +61,14 @@ trap 'do_cleanup' ERR TERM EXIT
 trap 'do_cleanup' SIGINT SIGTERM
 
 main() {
+    do_preflight
     do_download
     do_install
+}
+
+do_preflight() {
+    ohai "Running pre-flight..."
+    unset DONE_CLEANUP
 }
 
 do_download() {
@@ -79,8 +85,14 @@ do_install() {
 }
 
 do_cleanup() {
+    if [[ -n "${DONE_CLEANUP}" ]]; then
+        return 0
+    fi
+
     ohai "Running self-cleanup..."
     rm -rf "${WORKDIR}"
+
+    DONE_CLEANUP=1
 }
 
 execute "main" "$@"

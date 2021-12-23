@@ -74,7 +74,7 @@ do_preflight() {
 do_download() {
     ohai "Downloading setup script..."
     if [ ! -d "${WORKDIR}" ]; then
-        execute "git" "clone" "${REPO}" "${WORKDIR}"
+        execute "git" "clone" "--depth=1" "${REPO}" "${WORKDIR}"
     fi
 }
 

@@ -67,7 +67,9 @@ main() {
 
 do_download() {
     ohai "Downloading setup script..."
-    execute "git" "clone" "${REPO}" "${WORKDIR}"
+    if [ ! -d "${WORKDIR}" ]; then
+        execute "git" "clone" "${REPO}" "${WORKDIR}"
+    fi
 }
 
 do_install() {

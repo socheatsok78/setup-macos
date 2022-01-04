@@ -13,6 +13,7 @@ brew "httpie"
 brew "thefuck"              # No fuck given
 brew "jq"                   # lightweight and flexible command-line JSON processor
 brew "watch"                # Execute a program periodically, showing output fullscreen
+brew "makeself"             # A self-extracting archiving tool for Unix systems, in 100% shell script.
 
 # Download Tools
 brew "youtube-dl"

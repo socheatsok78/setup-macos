@@ -1,0 +1,9 @@
+# 03_utilities.brewfile
+cask "cheatsheet"                   # Know your short cuts
+cask "chrome-remote-desktop-host"   # Chrome Remote Desktop Host
+cask "gpg-suite-no-mail"            # GPG Suite (No Mail)
+cask "mounty"                       # NTFS Helper
+cask "pocket-casts"                 # Pocket Casts
+cask "vlc"                          # VideoLan Media Player
+cask 'outline-manager'
+# cask 'synergy'                      # Replaced by UniversalControl

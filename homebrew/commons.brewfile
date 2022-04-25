@@ -1,4 +1,0 @@
-brew "stow"
-brew "antigen"
-brew "svn"
-brew "whalebrew" # Homebrew, but with Docker images

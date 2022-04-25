@@ -1,0 +1,10 @@
+# 01_commons.brewfile
+
+brew "git"
+brew "svn"
+brew "stow"             # Stow is a symlink farm manager
+brew "antigen"          # The plugin manager for zsh.
+brew "starship"         # The minimal, blazing-fast, and infinitely customizable prompt for any shell!
+
+brew "mas"              # Mac App Store command line interface
+brew "whalebrew"        # Homebrew, but with Docker images

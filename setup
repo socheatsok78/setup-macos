@@ -94,10 +94,19 @@ brewbundle() {
     fi
 
     if [ -n "$CI" ]; then
-        execute "brew" "bundle" "--verbose" "--file" "$2.brewfile"
+        execute "brew" "bundle" "--verbose" "--file" "$2"
     else
-        execute "brew" "bundle" "--quiet" "--file" "$2.brewfile"
+        execute "brew" "bundle" "--quiet" "--file" "$2"
     fi
+}
+
+bundler() {
+    local target=$1
+    local brewfiles=$(ls $target)
+
+    for brewfile in $brewfiles; do
+        brewbundle "${brewfile}" "${target}/${brewfile}"
+    done
 }
 
 # main
@@ -110,18 +119,20 @@ install_homebrew
 update_homebrew
 
 divider
-ohai "Setup environment"
-brewbundle "prerequisite"           "homebrew/commons"
-brewbundle "keyboards and fonts"    "homebrew/fonts"
-brewbundle "development tools"      "homebrew/developments"
-brewbundle "development stacks"     "homebrew/stack"
-brewbundle "utilities"              "homebrew/utilities"
+
+ohai "Setup formulae"
+bundler "Formula"
 
 divider
-ohai "Setup applications"
-brewbundle "Cask"                   "homebrew/cask"
-brewbundle "AppStore"               "masbrew/AppStore"
-brewbundle "Arcade"                 "masbrew/Arcade"
+ohai "Setup casks"
+bundler "Cask"
 
+divider
+ohai "Setup stacks"
+bundler "Stack"
+
+divider
+ohai "Setup AppStore"
+bundler "AppStore"
 
 ohai "Installation successful!"

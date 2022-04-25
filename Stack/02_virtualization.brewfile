@@ -1,0 +1,4 @@
+# 02_virtualization.brewfile
+cask "multipass"                    # Ubuntu VMs on demand for any workstation
+cask "vagrant"                      # Hashicorp Vagrant
+cask "virtualbox"                   # Oracle VirtualBox

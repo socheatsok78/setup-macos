@@ -1,6 +1,7 @@
 # 01_commons.brewfile
 
 brew "git"
+brew "git-flow-avh"     # Git Flow (AVH Edition)
 brew "svn"
 brew "stow"             # Stow is a symlink farm manager
 brew "antigen"          # The plugin manager for zsh.

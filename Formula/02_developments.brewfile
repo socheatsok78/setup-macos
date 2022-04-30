@@ -6,6 +6,7 @@ brew "gh"
 brew "doctl"
 brew "awscli"
 
+brew "node"                # Temporary solution to resolve Fork's git hooks
 brew "node@16"              # Node v16
 brew "yarn"                 # Yarn
 brew "deno"                 # Deno A secure runtime for JavaScript and TypeScript.

@@ -6,8 +6,8 @@ brew "gh"
 brew "doctl"
 brew "awscli"
 
-brew "nvm"                  # Node Version Manager
-# brew "node@14"              # Node v14 : Replaced by nvm
+# brew "nvm"                  # Node Version Manager
+brew "node@14"              # Node v14 : Replaced by nvm
 brew "yarn"                 # Yarn
 brew "deno"                 # Deno A secure runtime for JavaScript and TypeScript.
 brew "dart"                 # Dart

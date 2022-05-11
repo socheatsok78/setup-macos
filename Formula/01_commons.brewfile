@@ -2,6 +2,7 @@
 
 brew "git"
 brew "git-flow-avh"     # Git Flow (AVH Edition)
+brew "git-cliff"        # A highly customizable Changelog Generator that follows Conventional Commit specifications.
 brew "svn"
 brew "stow"             # Stow is a symlink farm manager
 brew "antigen"          # The plugin manager for zsh.

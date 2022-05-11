@@ -1,4 +1,3 @@
-# Required
 brew "bat"                  # "cat" on steroids
 brew "exa"                  # A modern replacement for ls
 brew "htop"
@@ -11,3 +10,4 @@ brew "thefuck"              # No fuck given
 brew "tldr"
 brew "tree"                 # List directories in a tree structure
 brew "watch"                # Execute a program periodically, showing output fullscreen
+brew "xxh"                  # Bring your favorite shell wherever you go through the ssh.

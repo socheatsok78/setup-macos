@@ -1,7 +1,8 @@
 brew "bat"                  # "cat" on steroids
 brew "exa"                  # A modern replacement for ls
-brew "htop"
-brew "httpie"
+brew "htop"                 # htop - an interactive process viewer
+brew "btop"                 # btop - htop but better
+brew "httpie"               # httpie - API testing client for open minds
 brew "jq"                   # lightweight and flexible command-line JSON processor
 brew "lolcat"
 brew "makeself"             # A self-extracting archiving tool for Unix systems, in 100% shell script.

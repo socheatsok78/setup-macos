@@ -1,4 +1,5 @@
 cask "iterm2"                       # iTerm2 is a replacement for Terminal
+cask "warp"                         # The terminal for the 21st century
 cask "visual-studio-code"           # Code editing. Redefined.
 cask "fork"                         # Fast and friendly git client
 cask "insomnia"                     # Insomnia
